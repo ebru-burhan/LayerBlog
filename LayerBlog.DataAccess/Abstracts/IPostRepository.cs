@@ -8,5 +8,6 @@ namespace LayerBlog.DataAccess.Abstracts
     public interface IPostRepository : IRepository<Post>
     {
         Post GetPostById(int id);
+        List<Post> GetPostsByCategoryId(int categoryId);
     }
 }

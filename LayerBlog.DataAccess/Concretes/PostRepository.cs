@@ -1,5 +1,6 @@
 ﻿using LayerBlog.DataAccess.Abstracts;
 using LayerBlog.Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,15 @@ namespace LayerBlog.DataAccess.Concretes
         {
             //salak ebru yapma bi daha böyle bişi
             //return context.Set<Post>().Find(id);
-            return Get(x => x.PostID == id).FirstOrDefault();
+
+            //TODO: NOT!!! include ederken string yerine nameof içine hangi classı yazacaksan onun adı
+
+            return Get(x => x.PostID == id).Include(nameof(Category)).FirstOrDefault();
+        }
+
+        public List<Post> GetPostsByCategoryId(int categoryId)
+        {
+            return Get(x => x.CategoryId == categoryId).Include(nameof(Category)).ToList();
         }
     }
 }

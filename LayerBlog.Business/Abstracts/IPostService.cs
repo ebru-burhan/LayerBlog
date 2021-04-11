@@ -9,5 +9,11 @@ namespace LayerBlog.Business.Abstracts
     {
         List<PostDTO> GetPosts();
         PostDTO GetPostDtoById(int id);
+        List<PostDTO> GetPostDtoByCategory(CategoryDTO categoryDto);
+
+        void AddPost(PostDTO postDto);
+        void UpdatePost(PostDTO postDto);
+        void DeletePost(int id);
+
     }
 }

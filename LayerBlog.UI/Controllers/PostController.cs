@@ -26,5 +26,7 @@ namespace LayerBlog.UI.Controllers
 
             return View(new PostDTO());
         }
+
+        
     }
 }

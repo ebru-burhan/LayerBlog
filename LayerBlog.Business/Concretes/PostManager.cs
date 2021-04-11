@@ -37,15 +37,33 @@ namespace LayerBlog.Business.Concretes
             */
         }
 
-        public void AddPost(Post postDto)
-        {
-            _postRepository.Add(_mapper.Map<Post>(postDto));
-        }
 
         public PostDTO GetPostDtoById(int id)
         {
             Post post =_postRepository.GetPostById(id);
             return _mapper.Map<PostDTO>(post);
         }
+
+
+        public List<PostDTO> GetPostDtoByCategory(CategoryDTO categoryDto)
+        {
+            return _mapper.Map<List<PostDTO>>(_postRepository.GetPostsByCategoryId(categoryDto.CategoryID));
+        }
+
+        public void AddPost(PostDTO postDto)
+        {
+            _postRepository.Add(_mapper.Map<Post>(postDto));
+        }
+
+        public void UpdatePost(PostDTO postDto)
+        {
+            _postRepository.Update(_mapper.Map<Post>(postDto));
+        }
+
+        public void DeletePost(int id)
+        {
+            _postRepository.Delete(_postRepository.GetPostById(id));
+        }
+
     }
 }
