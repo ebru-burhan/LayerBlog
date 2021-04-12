@@ -7,5 +7,7 @@ namespace LayerBlog.DataAccess.Abstracts
 {
     public interface ICategoryRepository : IRepository<Category>
     {
+        List<Category> GetAllCategories();
+        Category GetCategoryById(int id);
     }
 }

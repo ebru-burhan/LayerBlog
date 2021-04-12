@@ -19,6 +19,18 @@ namespace LayerBlog.Business.Concretes
             _mapper = mapper;
         }
 
+        public List<CategoryDTO> GetCategories()
+        {
+           var categories= _categoryRepository.GetAllCategories();
+            return _mapper.Map<List<CategoryDTO>>(categories); 
+
+        }
+
+        public CategoryDTO GetCategoryDtoById(int id)
+        {
+            return _mapper.Map<CategoryDTO>(_categoryRepository.GetCategoryById(id));
+        }
+
         public void AddCategory(CategoryDTO dto)
         {
             _categoryRepository.Add(_mapper.Map<Category>(dto));

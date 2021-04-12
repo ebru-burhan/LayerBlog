@@ -7,6 +7,8 @@ namespace LayerBlog.Business.Abstracts
 {
     public interface ICategoryService : IService
     {
+        List<CategoryDTO> GetCategories();
+        CategoryDTO GetCategoryDtoById(int id);
         void AddCategory(CategoryDTO dto);
     }
 }

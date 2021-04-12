@@ -14,6 +14,11 @@ namespace LayerBlog.DataAccess.Concretes
         {
         }
 
+        public List<Post> GetAllPosts() 
+        {
+            return GetAll().ToList();
+        }
+
         public Post GetPostById(int id)
         {
             //salak ebru yapma bi daha böyle bişi
@@ -21,7 +26,8 @@ namespace LayerBlog.DataAccess.Concretes
 
             //TODO: NOT!!! include ederken string yerine nameof içine hangi classı yazacaksan onun adı
 
-            return Get(x => x.PostID == id).Include(nameof(Category)).FirstOrDefault();
+            //return Get(x => x.PostID == id).FirstOrDefault();
+            return GetFilteredIncluded(x => x.PostID == id, x => x.Category).FirstOrDefault();
         }
 
         public List<Post> GetPostsByCategoryId(int categoryId)

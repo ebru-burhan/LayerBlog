@@ -21,7 +21,7 @@ namespace LayerBlog.Business.Concretes
         }
         public List<PostDTO> GetPosts()
         {
-            var posts = _postRepository.GetAll();
+            var posts = _postRepository.GetAllPosts();
             return _mapper.Map<List<PostDTO>>(posts);
             //automappersiz nasıl yapıyoz
             /*
