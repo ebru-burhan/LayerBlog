@@ -24,7 +24,12 @@ namespace LayerBlog.UI.Controllers
         public IActionResult Add()
         {
 
-            return View(new PostDTO());
+            return View(new PostDTO() { 
+                    //Title = "Mito ile polanın efsaneleşmiş dissleri",
+                    //Description = "mito: pola kel, pola: mito ağlama",
+                    
+
+            });
         }
 
         

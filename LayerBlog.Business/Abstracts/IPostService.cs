@@ -8,8 +8,8 @@ namespace LayerBlog.Business.Abstracts
     public interface IPostService : IService
     {
         List<PostDTO> GetPosts();
-        PostDTO GetPostDtoById(int id);
-        List<PostDTO> GetPostDtoByCategory(CategoryDTO categoryDto);
+        PostDTO GetPostById(int id);
+        List<PostDTO> GetPostsByCategory(CategoryDTO categoryDto);
 
         void AddPost(PostDTO postDto);
         void UpdatePost(PostDTO postDto);

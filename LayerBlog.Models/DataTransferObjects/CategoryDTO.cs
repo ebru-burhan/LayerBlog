@@ -7,6 +7,11 @@ namespace LayerBlog.Models.DataTransferObjects
 {
     public class CategoryDTO
     {
+        public CategoryDTO(string name)
+        {
+            this.Name = name;
+        }
+
         public int CategoryID { get; set; }
 
         [Required]

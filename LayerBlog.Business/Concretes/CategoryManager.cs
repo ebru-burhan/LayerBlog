@@ -26,7 +26,7 @@ namespace LayerBlog.Business.Concretes
 
         }
 
-        public CategoryDTO GetCategoryDtoById(int id)
+        public CategoryDTO GetCategoryById(int id)
         {
             return _mapper.Map<CategoryDTO>(_categoryRepository.GetCategoryById(id));
         }
@@ -34,6 +34,20 @@ namespace LayerBlog.Business.Concretes
         public void AddCategory(CategoryDTO dto)
         {
             _categoryRepository.Add(_mapper.Map<Category>(dto));
+        }
+
+        public void UpdateCategory(CategoryDTO dto)
+        {
+            //tracking sorunu çözüldü burda yeni oluşturma dto geleni eşitle denildi generic repo da asnotracking yerine bu daha sağlıklı gbi hocamızın yaptığı yolda state değiştirmekti o da kullanılabilir 3 seçenek bu sefer maplerken yeni bişi oluşturmasına fırsat vermeden verileri atattırdık
+            var category = _categoryRepository.GetCategoryById(dto.CategoryID);
+            //aldık category i update yaprken dtodaki verileri category e eşitle dedk
+            _categoryRepository.Update(_mapper.Map(dto, category));
+        }
+
+        public void DeleteCategory(int id)
+        {
+            //get yapıp siliyoz hmm ne yapsak acabaa hmmmmm
+            _categoryRepository.Delete(_categoryRepository.GetCategoryById(id));
         }
     }
 }

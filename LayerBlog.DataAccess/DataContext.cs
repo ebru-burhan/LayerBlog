@@ -26,5 +26,10 @@ namespace LayerBlog.DataAccess
         {
             modelBuilder.ApplyConfiguration(new FavoritePostConfiguration());
         }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
     }
 }

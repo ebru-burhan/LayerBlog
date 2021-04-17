@@ -33,8 +33,10 @@ namespace LayerBlog.UI
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddScoped<IPostService, PostManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
 
         }
 

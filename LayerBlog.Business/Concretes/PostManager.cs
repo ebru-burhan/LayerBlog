@@ -38,14 +38,14 @@ namespace LayerBlog.Business.Concretes
         }
 
 
-        public PostDTO GetPostDtoById(int id)
+        public PostDTO GetPostById(int id)
         {
             Post post =_postRepository.GetPostById(id);
             return _mapper.Map<PostDTO>(post);
         }
 
 
-        public List<PostDTO> GetPostDtoByCategory(CategoryDTO categoryDto)
+        public List<PostDTO> GetPostsByCategory(CategoryDTO categoryDto)
         {
             return _mapper.Map<List<PostDTO>>(_postRepository.GetPostsByCategoryId(categoryDto.CategoryID));
         }
@@ -57,7 +57,8 @@ namespace LayerBlog.Business.Concretes
 
         public void UpdatePost(PostDTO postDto)
         {
-            _postRepository.Update(_mapper.Map<Post>(postDto));
+            var post = _postRepository.GetPostById(postDto.PostID);
+            _postRepository.Update(_mapper.Map(postDto,post));
         }
 
         public void DeletePost(int id)

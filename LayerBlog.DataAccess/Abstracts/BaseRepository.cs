@@ -107,7 +107,7 @@ namespace LayerBlog.DataAccess.Abstracts
             }
 
             //EF değişklikleri kontrol etmesin delete ettirmedi veriyi tutuyo hayırdır diyo
-            return query.AsNoTracking();
+            return query;//.AsNoTracking();
         }
 
 
