@@ -52,6 +52,7 @@ namespace LayerBlog.Business.Concretes
 
         public void AddPost(PostDTO postDto)
         {
+            //newliyo burda ekliyo
             _postRepository.Add(_mapper.Map<Post>(postDto));
         }
 
@@ -59,6 +60,8 @@ namespace LayerBlog.Business.Concretes
         {
             var post = _postRepository.GetPostById(postDto.PostID);
             _postRepository.Update(_mapper.Map(postDto,post));
+            //bu şeklde Post olarak newliyo ve update olacak context dekiyle çakışıyo dyo 2 tne oldu aynı id li bizde track etme dyoduk çözyo görnyoduk ama track etmesi gerekn diğer şeyler  edlmemş oluyodu yanlışa davetye risk teşkil eder benm için
+            //_postRepository.Update(_mapper.Map<Post>(postDto));
         }
 
         public void DeletePost(int id)

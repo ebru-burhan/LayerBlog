@@ -34,9 +34,11 @@ namespace LayerBlog.UI
 
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddScoped<IPostService, PostManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IUserService, UserManager>();
 
         }
 
