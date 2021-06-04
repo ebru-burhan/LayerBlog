@@ -9,6 +9,7 @@ namespace LayerBlog.Business.Abstracts
     public interface IUserService : IService
     {
         List<UserDTO> GetUsers();
+        UserDTO GetUserById(int id);
         void AddUser(UserDTO userDto);
         void UpdateUser(UserDTO userDto);
         void DeleteUser(int id);

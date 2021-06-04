@@ -20,7 +20,7 @@ namespace LayerBlog.UI.Controllers
 
         public IActionResult Index()
         {
-            // return View(_postService.GetPosts());
+             return View(_postService.GetPosts());
 
             UserDTO userDto = new UserDTO()
             {

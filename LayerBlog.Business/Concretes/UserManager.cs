@@ -24,6 +24,10 @@ namespace LayerBlog.Business.Concretes
             return _mapper.Map<List<UserDTO>>(_userRepository.GetAllUsers());
         }
 
+        public UserDTO GetUserById(int id)
+        {
+           return _mapper.Map<UserDTO>(_userRepository.GetUserById(id));
+        }
 
         public void AddUser(UserDTO userDto)
         {
@@ -41,5 +45,6 @@ namespace LayerBlog.Business.Concretes
             var user = _userRepository.GetUserById(id);
             _userRepository.Delete(user);
         }
+
     }
 }

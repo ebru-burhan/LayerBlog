@@ -3,19 +3,46 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout = "_Layout";
+    Layout = "_GuestLayout";
 }
 
 @*<div class="card bg-dark text-white">
-    <img src="~/Images/missing-person-silhouette.jpg" class="card-img" alt="...">
-    <div class="card-img-overlay">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text">Last updated 3 mins ago</p>
-    </div>
-</div>*@
+        <img src="~/Images/missing-person-silhouette.jpg" class="card-img" alt="...">
+        <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+        </div>
+    </div>*@
 
-<table class="table table-hover">
+
+<div class="grid">
+    @foreach (var item in Model)
+    {
+        <div class="grid-item">
+            <article class="post">
+                <div class="wrapgriditem">
+                    <header class="post-header">
+                        <h2 class="post-title"><a href="article.html">@item.Title</a></h2>
+                    </header>
+                    <section class="post-excerpt">
+                        <p>
+                            @item.Description <a class="read-more" href="/retro-is-the-new-modern/">&raquo;</a>
+                        </p>
+                    </section>
+                    <footer class="post-meta">
+                        <img class="author-thumb" src="~/nectaria-blog-guest-template/assets/img/gravatar.jpg" alt="David" nopin="nopin" />
+                        <a href="author.html">Sylthoria</a>
+                        <time class="post-date" datetime="2021-06-04">4 May 2021</time>
+                    </footer>
+                </div>
+            </article>
+        </div>
+    }
+
+</div>
+
+@*<table class="table table-hover">
     <thead>
         <tr>
             <th>Title</th>
@@ -32,4 +59,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@
